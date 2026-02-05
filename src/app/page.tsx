@@ -210,7 +210,7 @@ export default function Home() {
               className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
             >
               <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent">
-                Youssef Madkour
+                Execution Edge
               </span>
             </motion.h1>
 
@@ -859,12 +859,12 @@ export default function Home() {
                 <Code2 className="w-6 h-6 text-neutral-950" />
               </div>
               <div>
-                <span className="text-xl font-bold text-amber-400">Youssef Madkour</span>
+                <span className="text-xl font-bold text-amber-400">Execution Edge</span>
                 <p className="text-sm text-neutral-500">Elite Web Development & Digital Solutions</p>
               </div>
             </div>
             <p className="text-sm text-neutral-500 text-center md:text-right">
-              © {new Date().getFullYear()} Youssef Madkour. All rights reserved.
+              © {new Date().getFullYear()} Execution Edge. All rights reserved.
             </p>
           </div>
         </div>

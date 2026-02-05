@@ -14,18 +14,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Youssef Madkour - Elite Web Development & Digital Solutions",
+  title: "Execution Edge - Elite Web Development & Digital Solutions",
   description: "Transform your business with elite web development services. Crafting exceptional digital experiences, high-performance websites, and custom e-commerce platforms that drive measurable results.",
-  keywords: ["Youssef Madkour", "Web Development", "Custom Websites", "E-commerce", "Frontend", "Next.js", "React", "TypeScript", "Digital Solutions"],
-  authors: [{ name: "Youssef Madkour" }],
+  keywords: ["Execution Edge", "Web Development", "Custom Websites", "E-commerce", "Frontend", "Next.js", "React", "TypeScript", "Digital Solutions"],
+  authors: [{ name: "Execution Edge" }],
   openGraph: {
-    title: "Youssef Madkour - Elite Web Development & Digital Solutions",
+    title: "Execution Edge - Elite Web Development & Digital Solutions",
     description: "Crafting exceptional digital experiences that transform businesses with cutting-edge technology and stunning design",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Youssef Madkour - Elite Web Developer",
+    title: "Execution Edge - Elite Web Developer",
     description: "Elite web development services that transform your vision into powerful digital experiences",
   },
 };
