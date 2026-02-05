@@ -213,6 +213,12 @@ export default function Home() {
                 Execution Edge
               </span>
             </motion.h1>
+            <motion.p 
+              variants={fadeInUp}
+              className="text-sm text-neutral-500 mb-4"
+            >
+              by Youssef Madkour
+            </motion.p>
 
             <motion.p 
               variants={fadeInUp}
@@ -861,6 +867,7 @@ export default function Home() {
               <div>
                 <span className="text-xl font-bold text-amber-400">Execution Edge</span>
                 <p className="text-sm text-neutral-500">Elite Web Development & Digital Solutions</p>
+                <p className="text-xs text-neutral-600 mt-1">by Youssef Madkour</p>
               </div>
             </div>
             <p className="text-sm text-neutral-500 text-center md:text-right">
