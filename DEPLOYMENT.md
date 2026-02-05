@@ -52,16 +52,37 @@ Vercel will auto-detect Next.js settings, but verify:
 2. Wait for the build to complete (usually 2-3 minutes)
 3. Once deployed, you'll see a success message with your live URL!
 
-## Step 6: Custom Domain (Optional)
+## Step 6: Configure Custom Domain (executionedge.io)
 
-If you want to use a custom domain:
+**This is required for your deployment:**
 
-1. Go to your project dashboard
+1. Go to your project dashboard in Vercel
 2. Click **"Settings"** → **"Domains"**
 3. Click **"Add Domain"**
-4. Enter your domain (e.g., `youssefmadkour.com`)
-5. Follow the DNS configuration instructions
-6. Vercel will automatically configure SSL certificates
+4. Enter your domain: `executionedge.io`
+5. Vercel will show you DNS configuration instructions
+
+### DNS Configuration
+
+You'll need to add these DNS records to your domain registrar (where you bought executionedge.io):
+
+**Option 1: A Record (Recommended)**
+- Type: `A`
+- Name: `@` (or leave blank)
+- Value: `76.76.21.21` (Vercel's IP - check Vercel dashboard for current IP)
+
+**Option 2: CNAME Record (Easier)**
+- Type: `CNAME`
+- Name: `@` (or `www`)
+- Value: `cname.vercel-dns.com` (Vercel will provide exact value)
+
+**Option 3: Nameservers (Best for full control)**
+- Change your domain's nameservers to Vercel's:
+  - Vercel will provide nameserver addresses in the dashboard
+
+6. After adding DNS records, wait 5-60 minutes for propagation
+7. Vercel will automatically detect and configure SSL certificates
+8. Your site will be live at `https://executionedge.io`
 
 ## Post-Deployment Checklist
 
@@ -123,4 +144,6 @@ After making changes:
 
 **Your site is now live! 🎉**
 
-Your portfolio will be accessible at: `https://your-project-name.vercel.app`
+Your portfolio will be accessible at:
+- **Primary:** `https://executionedge.io`
+- **Vercel URL:** `https://your-project-name.vercel.app` (also works)
