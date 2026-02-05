@@ -56,33 +56,92 @@ Vercel will auto-detect Next.js settings, but verify:
 
 **This is required for your deployment:**
 
+### Part A: Add Domain in Vercel
+
 1. Go to your project dashboard in Vercel
 2. Click **"Settings"** → **"Domains"**
 3. Click **"Add Domain"**
 4. Enter your domain: `executionedge.io`
-5. Vercel will show you DNS configuration instructions
+5. Vercel will show you the DNS records you need to add
+6. **Important:** Copy the DNS values Vercel shows you (they may differ from examples below)
 
-### DNS Configuration
+### Part B: Add DNS Records at Hostinger
 
-You'll need to add these DNS records to your domain registrar (where you bought executionedge.io):
+Since your domain is managed by Hostinger, you need to add DNS records there:
 
-**Option 1: A Record (Recommended)**
-- Type: `A`
-- Name: `@` (or leave blank)
-- Value: `76.76.21.21` (Vercel's IP - check Vercel dashboard for current IP)
+1. **Log in to Hostinger:**
+   - Go to [hpanel.hostinger.com](https://hpanel.hostinger.com)
+   - Log in with your Hostinger account
 
-**Option 2: CNAME Record (Easier)**
-- Type: `CNAME`
-- Name: `@` (or `www`)
-- Value: `cname.vercel-dns.com` (Vercel will provide exact value)
+2. **Navigate to DNS Management:**
+   - Go to **"Domains"** → Select **"executionedge.io"**
+   - Click on **"DNS / Name Servers"** or **"DNS Zone Editor"**
 
-**Option 3: Nameservers (Best for full control)**
-- Change your domain's nameservers to Vercel's:
-  - Vercel will provide nameserver addresses in the dashboard
+3. **Add DNS Records:**
 
-6. After adding DNS records, wait 5-60 minutes for propagation
-7. Vercel will automatically detect and configure SSL certificates
-8. Your site will be live at `https://executionedge.io`
+   **For the root domain (executionedge.io):**
+   
+   **Option 1: CNAME Record (Recommended - Easiest)**
+   - Click **"Add Record"** or **"Add New Record"**
+   - **Type:** `CNAME`
+   - **Name/Host:** `@` (or leave blank, or enter `executionedge.io`)
+   - **Value/Target:** `cname.vercel-dns.com` 
+     - ⚠️ **Note:** Vercel will show you the exact value in their dashboard - use that!
+   - **TTL:** `3600` (or leave default)
+   - Click **"Save"** or **"Add Record"**
+
+   **Option 2: A Record (If CNAME doesn't work)**
+   - Click **"Add Record"**
+   - **Type:** `A`
+   - **Name/Host:** `@` (or leave blank)
+   - **Value/IP:** `76.76.21.21` 
+     - ⚠️ **Note:** Check Vercel dashboard for the current IP address
+   - **TTL:** `3600`
+   - Click **"Save"**
+
+   **For www subdomain (www.executionedge.io):**
+   - Click **"Add Record"**
+   - **Type:** `CNAME`
+   - **Name/Host:** `www`
+   - **Value/Target:** `cname.vercel-dns.com` (or value from Vercel)
+   - **TTL:** `3600`
+   - Click **"Save"**
+
+4. **Verify Records:**
+   - Make sure you don't have conflicting records
+   - Remove any old A records pointing to other IPs (if any)
+   - Keep other records (MX for email, etc.) if needed
+
+5. **Wait for DNS Propagation:**
+   - DNS changes can take 5 minutes to 48 hours
+   - Usually takes 15-60 minutes
+   - Check status in Vercel dashboard - it will show "Valid Configuration" when ready
+
+6. **Vercel will automatically:**
+   - Detect the DNS records
+   - Configure SSL certificates (HTTPS)
+   - Your site will be live at `https://executionedge.io`
+
+### Troubleshooting DNS Issues
+
+**If DNS doesn't propagate:**
+- Double-check the values match exactly what Vercel shows
+- Make sure there are no typos
+- Remove any conflicting records
+- Wait longer (up to 48 hours in rare cases)
+- Use a DNS checker tool: [dnschecker.org](https://dnschecker.org)
+
+**If Hostinger doesn't allow CNAME on root (@):**
+- Some registrars don't allow CNAME on root domain
+- Use A record instead with the IP Vercel provides
+- Or use nameservers (see below)
+
+**Alternative: Use Vercel Nameservers (Advanced)**
+If you want Vercel to manage all DNS:
+1. In Vercel dashboard, get the nameserver addresses
+2. In Hostinger, go to **"Name Servers"**
+3. Change nameservers to Vercel's (usually `ns1.vercel-dns.com`, etc.)
+4. This gives Vercel full DNS control
 
 ## Post-Deployment Checklist
 
